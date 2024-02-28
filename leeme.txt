@@ -1,0 +1,2 @@
+Debe de crear una base de datos con mysql con el nombre de "indi" para que no se mueva ninguna linea de codigo 
+De igual manera, si se quiere cambiar algun otro datos o el nombre de la base de datos se debe cambiar en los archivos correspondientes de la conexion
