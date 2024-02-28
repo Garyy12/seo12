@@ -1,16 +1,16 @@
 <?php
-$titulo = "Canelita buchota es lore";
-$descripcionImg = "12121212";
-$contenido = "<div>1212121</div>";
+$titulo = "Hola 12";
+$descripcionImg = "hola";
+$contenido = "<div>hola</div>";
 
-$descripcion = "12121212";
+$descripcion = "Hola";
 
-$rutaDestino = "../img/daos.png";
-$palabra = "Porfin";
+$rutaDestino = "../img/thumb_8202_640_360_0_0_crop.jpeg";
+$palabra = "Palabra";
 
-$autor = "Victor Luna";
-$keywords = "por, fin";
-$estado = "CDMX";
+$autor = "Yo";
+$keywords = "hola, palabra";
+$estado = "Tijuana";
 ?> 
   <!DOCTYPE html>
   <html lang="en">
@@ -59,8 +59,8 @@ $estado = "CDMX";
           <center><meta name= "author" content = "<?php echo nl2br($autor);  ?>"><?php echo nl2br($autor);  ?><center><br>
           <p><?php echo nl2br($contenido);  ?> </p>
           <br>
-          <a echo Hipervinculo: href=https://sistemas.comecyt.edomex.gob.mx/becas/#/> <b><?php echo nl2br($palabra);  ?></b></a>
-            <br>
+          <a Hipervinculo: href=https://sistemas.comecyt.edomex.gob.mx/becas/#/> <b><?php echo nl2br($palabra);  ?></b></a>
+
           <meta name= "keywords" content = "<?php echo nl2br($keywords);  ?>"><?php echo nl2br($keywords);  ?><br>
           </div>
   

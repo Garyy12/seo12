@@ -16,6 +16,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $estado = $_POST['estado'];
         $descripcionImg = $_POST['descripcionImg'];
         $keywords = $_POST['keywords'];
+        $urls = $_POST['urls'];
+        $palabra = $_POST['palabra'];
         
 
           // Procesar la imagen
@@ -29,7 +31,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
           move_uploaded_file($rutaTemporal, $rutaDestino);
 
            // Insertar los datos en la base de datos
-        $query = "INSERT INTO blogs (titulo, descripcion, contenido, imagen, descripcionImg, keywords,  autor, estado) VALUES ('$titulo', '$descripcion', '$contenido', '$nombreArchivo', '$descripcionImg', '$keywords', '$autor', '$estado')";
+        $query = "INSERT INTO blogs (titulo, descripcion, contenido, urls, palabra, imagen, descripcionImg, keywords,  autor, estado) VALUES ('$titulo', '$descripcion', '$contenido', '$urls', '$palabra', '$nombreArchivo', '$descripcionImg', '$keywords', '$autor', '$estado')";
 
         if (mysqli_query($conectar, $query)) {
      
@@ -72,10 +74,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
   
   $nombre_archivo = strtolower(str_replace(' ', '_', $titulo)) . '.php'; // Genera un nombre de archivo basado en el título
   $ruta_carpeta = '../blogs/'; // Especifica la ruta de la carpeta
-  
   $ruta_archivo = $ruta_carpeta . $nombre_archivo; // Combina la ruta de la carpeta con el nombre de archivo
 
-  $html = '<?php' . "\n" . '$titulo = "' . $titulo . '";' . "\n" . '$descripcionImg = "' . $descripcionImg . '";' . "\n" . '$contenido = "' . $contenido . '";'. "\n" . '' . "\n" . '$descripcion = "' . $descripcion . '";' . "\n" . '' . "\n" . '$rutaDestino = "' . $rutaDestino . '";' . "\n" . '' . "\n" . '$autor = "' . $autor . '";'  . "\n" . '$keywords = "' . $keywords . '";'. "\n" . '$estado = "' . $estado . '";' . "\n" . '?> 
+  $html = '<?php' . "\n" . '$titulo = "' . $titulo . '";' . "\n" . '$descripcionImg = "' . $descripcionImg . '";' . "\n" . '$contenido = "' . $contenido . '";'. "\n" . '' . "\n" . '$descripcion = "' . $descripcion . '";' . "\n" . '' . "\n" . '$rutaDestino = "' . $rutaDestino . '";' . "\n" . '$palabra = "' . $palabra . '";' . "\n" . '' . "\n" . '$autor = "' . $autor . '";'  . "\n" . '$keywords = "' . $keywords . '";'. "\n" . '$estado = "' . $estado . '";' . "\n" . '?> 
   <!DOCTYPE html>
   <html lang="en">
   <head>
@@ -117,12 +118,14 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
           <p><?php echo nl2br($descripcionImg);  ?> </p>
           <br>
           <center><meta name= "description" content = "<?php echo nl2br($descripcion);  ?>"><?php echo nl2br($descripcion);  ?><center><br>
-      
+        
   
       <main class="contenedor seccion contenido-centrado">
           <center><meta name= "author" content = "<?php echo nl2br($autor);  ?>"><?php echo nl2br($autor);  ?><center><br>
           <p><?php echo nl2br($contenido);  ?> </p>
           <br>
+          <a echo Hipervinculo: href='. ($urls) . '> <b><?php echo nl2br($palabra);  ?></b></a>
+            <br>
           <meta name= "keywords" content = "<?php echo nl2br($keywords);  ?>"><?php echo nl2br($keywords);  ?><br>
           </div>
   

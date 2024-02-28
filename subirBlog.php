@@ -63,9 +63,14 @@
                         });
                     </script><br>
 
+                <label for="palabra">Ingresa una palabra para su link </label>
+                <input type="text" name="palabra" placeholder="Coloca una palabra"><br>
+
+                <label for="urls">Ingrese su link </label>
+                <input type="text" name="urls" placeholder="Coloca link"><br>
+                
                 <label for="keywords">Ingresa palabras clave (seprado por ",") </label>
                 <input type="text" name="keywords" placeholder="Coloca palabras clave"><br>
-
 
                 <label for="autor">Nombre del autor: </label>
                 <input type="text" name="autor" placeholder="Coloca el nombre del autor"><br>

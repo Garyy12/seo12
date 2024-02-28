@@ -1,16 +1,15 @@
 <?php
-$titulo = "Canelita buchota es lore";
-$descripcionImg = "12121212";
-$contenido = "<div>1212121</div>";
+$titulo = "qwqwqwqwqw";
+$descripcionImg = "qwqwqwqwqw";
+$contenido = "<div>wqwqwqwq</div>";
 
-$descripcion = "12121212";
+$descripcion = "qwqwqwqwqw";
 
-$rutaDestino = "../img/daos.png";
-$palabra = "Porfin";
+$rutaDestino = "../img/Dulcero.jpg";
 
-$autor = "Victor Luna";
-$keywords = "por, fin";
-$estado = "CDMX";
+$autor = "Yo";
+$keywords = "";
+$estado = "Puebla";
 ?> 
   <!DOCTYPE html>
   <html lang="en">
@@ -59,8 +58,8 @@ $estado = "CDMX";
           <center><meta name= "author" content = "<?php echo nl2br($autor);  ?>"><?php echo nl2br($autor);  ?><center><br>
           <p><?php echo nl2br($contenido);  ?> </p>
           <br>
-          <a echo Hipervinculo: href=https://sistemas.comecyt.edomex.gob.mx/becas/#/> <b><?php echo nl2br($palabra);  ?></b></a>
-            <br>
+          echo "<a href="http://localhost/seo/subirBlog.php">$palabra</a>";
+
           <meta name= "keywords" content = "<?php echo nl2br($keywords);  ?>"><?php echo nl2br($keywords);  ?><br>
           </div>
   

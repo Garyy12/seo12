@@ -88,8 +88,8 @@
             colors: [],
 
             // dropdowns
-            fileHTML: '',
-            imageHTML: '',
+            filehtml: '',
+            imagehtml: '',
 
             // translations
             translations: {
@@ -152,7 +152,7 @@
                 'addURL': 'Add URL',
                 'addTable': 'Add table',
                 'removeStyles': 'Remove styles',
-                'code': 'Show HTML code',
+                'code': 'Show html code',
                 'undo': 'Undo',
                 'redo': 'Redo',
                 'save': 'Save',
@@ -177,7 +177,7 @@
             class: "",
             useParagraph: false,
             maxlength: 0,
-            maxlengthIncludeHTML: false,
+            maxlengthIncludehtml: false,
             callback: undefined,
             useTabForNext: false,
             save: false,
@@ -295,7 +295,7 @@
             }), // urls/links
             $btnTable = $('<a />', {
                 class: "richText-btn",
-                "title": settings.translations.addTable,
+                'title': settings.translations.addTable,
                 html: '<span class="fa fa-table"></span>'
             }), // table
             $btnRemoveStyles = $('<a />', {
@@ -381,16 +381,16 @@
 
         /* box dropdown for links */
         var $linksDropdown = $dropdownBox.clone();
-        var $linksForm = $form.clone().attr("id", "richText-URL").attr("data-editor", editorID);
+        var $linksForm = $form.clone().attr("id", 'richText-URL').attr("data-editor", editorID);
         $linksForm.append(
             $formItem.clone()
-                .append($formLabel.clone().text(settings.translations.url).attr("for", "url"))
-                .append($formInput.clone().attr("id", "url"))
+                .append($formLabel.clone().text(settings.translations.url).attr('for', 'url'))
+                .append($formInput.clone().attr('id', 'url'))
         );
         $linksForm.append(
             $formItem.clone()
-                .append($formLabel.clone().text(settings.translations.text).attr("for", "urlText"))
-                .append($formInput.clone().attr("id", "urlText"))
+                .append($formLabel.clone().text(settings.translations.text).attr("for", 'urlText'))
+                .append($formInput.clone().attr("id", 'urlText'))
         );
         $linksForm.append(
             $formItem.clone()
@@ -435,10 +435,10 @@
         var $imageDropdown = $dropdownBox.clone();
         var $imageForm = $form.clone().attr("id", "richText-Image").attr("data-editor", editorID);
 
-        if (settings.imageHTML
-            && ($(settings.imageHTML).find('#imageURL').length > 0 || $(settings.imageHTML).attr("id") === "imageURL")) {
+        if (settings.imagehtml
+            && ($(settings.imagehtml).find('#imageURL').length > 0 || $(settings.imagehtml).attr("id") === "imageURL")) {
             // custom image form
-            $imageForm.html(settings.imageHTML);
+            $imageForm.html(settings.imagehtml);
         } else {
             // default image form
             $imageForm.append(
@@ -466,10 +466,10 @@
         var $fileDropdown = $dropdownBox.clone();
         var $fileForm = $form.clone().attr("id", "richText-File").attr("data-editor", editorID);
 
-        if (settings.fileHTML
-            && ($(settings.fileHTML).find('#fileURL').length > 0 || $(settings.fileHTML).attr("id") === "fileURL")) {
+        if (settings.filehtml
+            && ($(settings.filehtml).find('#fileURL').length > 0 || $(settings.filehtml).attr("id") === "fileURL")) {
             // custom file form
-            $fileForm.html(settings.fileHTML);
+            $fileForm.html(settings.filehtml);
         } else {
             // default file form
             $fileForm.append(
@@ -998,7 +998,7 @@
 
                         }
                         restoreSelection(editorID, true);
-                        pasteHTMLAtCaret(html);
+                        pastehtmlAtCaret(html);
                         updateTextarea();
                         // reset input values
                         $form.find('input#videoURL').val('');
@@ -1127,16 +1127,16 @@
                     restoreSelection(editorID, false, true);
 
                     var $editNode = $('.richText-editNode');
-                    if ($editNode.length > 0 && $editNode.prop("tagName") === "A") {
+                    if ($editNode.length > 0 && $editNode.prop('tagName') === 'A') {
                         $editNode.attr('href', url);
-                        $editNode.attr("target", target);
+                        $editNode.attr('target', target);
                         $editNode.text(text);
                         $editNode.removeClass('richText-editNode');
                         if ($editNode.attr('class') === '') {
                             $editNode.removeAttr('class');
                         }
                     } else {
-                        pasteHTMLAtCaret(html);
+                        pastehtmlAtCaret(html);
                     }
                     // reset input values
                     $form.find('input#url').val('');
@@ -1207,7 +1207,7 @@
                             $editNode.removeAttr('class');
                         }
                     } else {
-                        pasteHTMLAtCaret(html);
+                        pastehtmlAtCaret(html);
                     }
                     // reset input values
                     $form.find('input#imageURL').val('');
@@ -1247,12 +1247,12 @@
                     // write html in editor
                     var html = '';
                     if (settings.useSingleQuotes === true) {
-                        html = '<a href=' + url + '>' + "' target='_blank'>" + text + '</a>';
+                        html = '<a href=' + url + '>' + text + '</a>';
                     } else {
-                        html = '<a href=' + url + '>' +  "' target='_blank'>" + text + '</a>';
+                        html = '<a href=' + url + '>' + text + '</a>';
                     }
                     restoreSelection(editorID, true);
-                    pasteHTMLAtCaret(html);
+                    pastehtmlAtCaret(html);
                     // reset input values
                     $form.find('input#fileURL').val('');
                     $form.find('input#fileText').val('');
@@ -1300,7 +1300,7 @@
 
                 // write html in editor
                 restoreSelection(editorID, true);
-                pasteHTMLAtCaret(html);
+                pastehtmlAtCaret(html);
                 // reset input values
                 $form.find('input#tableColumns').val('');
                 $form.find('input#tableRows').val('');
@@ -1332,10 +1332,10 @@
                     // put currently selected text in URL form to replace it
                     restoreSelection(editorID, false, true);
                     var selectedText = getSelectedText();
-                    $clickedElement.find("input#urlText").val('');
-                    $clickedElement.find("input#url").val('');
+                    $clickedElement.find('input#urlText').val('');
+                    $clickedElement.find('input#url').val('');
                     if (selectedText) {
-                        $clickedElement.find("input#urlText").val(selectedText);
+                        $clickedElement.find('input#urlText').val(selectedText);
                     }
                 } else if ($clickedElement.hasClass("fa-image")) {
                     // image
@@ -1371,7 +1371,7 @@
 
                     formatText(command, option, id);
                     if (command === "removeFormat") {
-                        // remove HTML/CSS formatting
+                        // remove html/CSS formatting
                         $editor.find('*').each(function () {
                             // remove all, but very few, attributes from the nodes
                             var keepAttributes = [
@@ -1827,7 +1827,7 @@
             }
             var color;
             var maxLength = parseInt($editor.data('maxlength'));
-            var content = settings.maxlengthIncludeHTML ? $editorInner.html() : $editorInner.text();
+            var content = settings.maxlengthIncludehtml ? $editorInner.html() : $editorInner.text();
             var percentage = (content.length / maxLength) * 100;
             if (percentage > 99) {
                 color = 'red';
@@ -1934,16 +1934,16 @@
 
                 return;
             }
-            pasteHTMLAtCaret(html);
+            pastehtmlAtCaret(html);
         }
 
         /**
-         * Paste HTML at caret position
-         * @param {string} html HTML code
+         * Paste html at caret position
+         * @param {string} html html code
          * @private
          */
-        function pasteHTMLAtCaret(html) {
-            // add HTML code for Internet Explorer
+        function pastehtmlAtCaret(html) {
+            // add html code for Internet Explorer
             var sel, range;
             if (window.getSelection) {
                 // IE9 and non-IE
@@ -1956,7 +1956,7 @@
                     // only relatively recently standardized and is not supported in
                     // some browsers (IE9, for one)
                     var el = document.createElement("div");
-                    el.innerHTML = html;
+                    el.innerhtml = html;
                     var frag = document.createDocumentFragment(), node, lastNode;
                     while ((node = el.firstChild)) {
                         lastNode = frag.appendChild(node);
@@ -1974,13 +1974,13 @@
                 }
             } else if (document.selection && document.selection.type !== "Control") {
                 // IE < 9
-                document.selection.createRange().pasteHTML(html);
+                document.selection.createRange().pastehtml(html);
             }
         }
 
 
         /**
-         * Change quotes around HTML attributes
+         * Change quotes around html attributes
          * @param  {string} string
          * @return {string}
          */
@@ -2110,7 +2110,7 @@
             };
             for (var i = 0; i < code.length; i++) {
                 if (code[i] === "<") {
-                    // HTML tag starts
+                    // html tag starts
                     states.isTag = true;
                     states.tag = false;
                     states.tagsCount++;
@@ -2209,7 +2209,7 @@
                 html += '<iframe src="https://player.vimeo.com/video/' + video.id + '" width="' + size[0] + '" height="' + size[1] + '" frameborder="0"' + (responsive === true ? ' style="position:absolute;width:100%;height:100%;left:0"' : '') + ' ' + allowfullscreen + '></iframe>';
                 success = true;
             } else if (video.platform === "Facebook") {
-                html += '<iframe src="https://www.facebook.com/plugins/video.php?href=' + encodeURI(url) + '&show_text=0&width=' + size[0] + '" width="' + size[0] + '" height="' + size[1] + '" style="' + (responsive === true ? 'position:absolute;width:100%;height:100%;left:0;border:none;overflow:hidden"' : 'border:none;overflow:hidden') + '" scrolling="no" frameborder="0" allowTransparency="true" ' + allowfullscreen + '></iframe>';
+                html += '<iframe src="https://www.facebook.com/plugins/video.html?href=' + encodeURI(url) + '&show_text=0&width=' + size[0] + '" width="' + size[0] + '" height="' + size[1] + '" style="' + (responsive === true ? 'position:absolute;width:100%;height:100%;left:0;border:none;overflow:hidden"' : 'border:none;overflow:hidden') + '" scrolling="no" frameborder="0" allowTransparency="true" ' + allowfullscreen + '></iframe>';
                 success = true;
             } else if (video.platform === "Dailymotion") {
                 html += '<iframe frameborder="0" width="' + size[0] + '" height="' + size[1] + '" src="//www.dailymotion.com/embed/video/' + video.id + '"' + (responsive === true ? ' style="position:absolute;width:100%;height:100%;left:0"' : '') + ' ' + allowfullscreen + '></iframe>';
